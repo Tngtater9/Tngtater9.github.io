@@ -2,7 +2,6 @@ $(function() {
     $('#js-shopping-list-form').on('submit', function(event){
         event.preventDefault();
         let newItem = $('#shopping-list-entry').val();
-        $('li:first').clone().appendTo('ul');
         const newEntry = '<li>'+
         '<span class="shopping-item"></span>'+
         '<div class="shopping-item-controls">'+
@@ -16,6 +15,7 @@ $(function() {
       '</li>';
         $(newEntry).appendTo('.shopping-list');
         $('ul li:last-child .shopping-item').text(newItem);
+        $('#shopping-list-entry').val("");
     });
     $('ul').on('click', 'li .shopping-item-toggle', function(event){
         $(this).parent().parent().find('span:eq(0)').toggleClass('shopping-item__checked');
