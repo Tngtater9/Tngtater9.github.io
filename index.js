@@ -3,6 +3,18 @@ $(function() {
         event.preventDefault();
         let newItem = $('#shopping-list-entry').val();
         $('li:first').clone().appendTo('ul');
+        const newEntry = '<li>'+
+        '<span class="shopping-item"></span>'+
+        '<div class="shopping-item-controls">'+
+          '<button class="shopping-item-toggle">'+
+            '<span class="button-label">check</span>'+
+          '</button>'+
+          '<button class="shopping-item-delete">'+
+            '<span class="button-label">delete</span>'+
+          '</button>'+
+        '</div>'+
+      '</li>';
+        $(newEntry).appendTo('.shopping-list');
         $('ul li:last-child .shopping-item').text(newItem);
     });
     $('ul').on('click', 'li .shopping-item-toggle', function(event){
